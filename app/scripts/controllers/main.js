@@ -8,8 +8,17 @@
  * Controller of the localclientApp
  */
 angular.module('localclientApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $http) {
     $scope.gameBoards = [];
+
+    $http.get('http://localhost:49738/api/GameBoard').
+		success(function(data) {
+			console.log(data);
+		})
+		.error(function(){
+			console.log("Error");
+		});
+
     $scope.addGameBoard = function () {
     	$scope.gameBoards.push($scope.gameBoard);
   		$scope.gameBoard = '';
