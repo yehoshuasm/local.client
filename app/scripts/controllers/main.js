@@ -9,9 +9,12 @@
  */
 angular.module('localclientApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.gameBoards = [];
+    $scope.addGameBoard = function () {
+    	$scope.gameBoards.push($scope.gameBoard);
+  		$scope.gameBoard = '';
+	};
+	$scope.removeGameBoard = function (index) {
+  		$scope.gameBoards.splice(index, 1);
+	};
   });

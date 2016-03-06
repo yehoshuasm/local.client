@@ -1,2 +1,23 @@
 <div class="container">
+  <!-- Game Board Input -->
+  <form role="form" ng-submit="addGameBoard()">
+    <div class="row">
+      <div class="input-group">
+        <input type="text" ng-model="gameBoard" placeholder="What needs to be done?" class="form-control">
+        <span class="input-group-btn">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </span>
+      </div>
+    </div>
+  </form>
+  <!-- Game Boards List-->
+  <h2>Game Boards</h2>
+  <div ui-sortable ng-model="gameBoards">
+    <p class="form-group" ng-repeat="gameBoard in gameBoards">
+      <input type="text" ng-model="gameBoard" class="form-control"></input>
+      <span class="input-group-btn">
+      <button class="btn btn-danger" ng-click="removeGameBoard($index)" aria-label="Remove">X</button>
+    </span>
+    </p>
+  </div>
 </div>
